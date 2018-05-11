@@ -4,6 +4,8 @@
 *.pbxuser
 *.app*
 *.DS_*
+*.suo
+*.VC.db
 
 .svn/
 obj/
