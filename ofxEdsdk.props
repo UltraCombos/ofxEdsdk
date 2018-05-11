@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxEdsdk\src;..\..\..\addons\ofxEdsdk\src\EdsWrapper;..\..\..\addons\ofxEdsdk\libs\EDSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='Win32'">..\..\..\addons\ofxEdsdk\libs\EDSDK\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+	  <AdditionalLibraryDirectories Condition="'$(Platform)'=='x64'">..\..\..\addons\ofxEdsdk\libs\EDSDK\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>	  
+      <AdditionalDependencies>EDSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+	  <Command Condition="'$(Platform)'=='Win32'">robocopy "$(ProjectDir)/../../../addons/ofxEdsdk/libs/EDSDK/bin/x86/" "$(ProjectDir)/bin/" "*.dll" /njs /njh /np /fp /bytes 
+%(Command)</Command>
+	  <Command Condition="'$(Platform)'=='x64'">robocopy "$(ProjectDir)/../../..//addons/ofxEdsdk/libs/EDSDK/bin/x64/" "$(ProjectDir)/bin/" "*.dll" /njs /njh /np /fp /bytes 
+%(Command)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

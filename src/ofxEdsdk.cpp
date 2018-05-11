@@ -101,6 +101,7 @@ namespace ofxEdsdk {
         // completing, but sleeping then stopping capture is ok.
         ofSleepMillis(100);
         stopCapture();
+		return true;
     }
     
     Camera::~Camera() {
